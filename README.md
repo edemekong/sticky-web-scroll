@@ -20,7 +20,18 @@ stickyHeight  | stickyAppBar, stickyAppBar height.
 ## We are on YouTube!
 
 You can see a video tutorial here.
-1. Flutter Tutorials [tutorial](https://www.youtube.com/channel/UC1fuQBjVLSqwk-PgdeeMAyQ) by **Paul Edeme'kong**
+1.Awesome Flutter Tutorials [tutorial](https://www.youtube.com/channel/UC1fuQBjVLSqwk-PgdeeMAyQ) by **Flutter Developer's Core**
+
+To use this package :
+
+* add the dependency to your [pubspec.yaml](https://github.com/hello-paulvin/sticky-web-scroll/pubspec.yaml) file.
+
+```yaml
+  dependencies:
+    flutter:
+      sdk: flutter
+    sticky_web_scroll: 
+```
 
 ## Getting Started
 
