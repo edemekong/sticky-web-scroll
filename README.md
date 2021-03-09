@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # sticky_web_scroll
 
 Sticky Web Scroll is a package that utilise NestedScrollView class to create great scroll effect for flutter web developers.
@@ -14,7 +13,3 @@ multiple Flutter or Dart projects.
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
-=======
-# sticky-web-scroll
-Sticky Web Scroll is a package that utilise NestedScrollView class to create great scroll effect for flutter web developers.
->>>>>>> b0105e886c7e717148e80b29f9e2c1bca0cec117
