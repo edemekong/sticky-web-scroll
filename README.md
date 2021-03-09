@@ -1,19 +1,46 @@
-<<<<<<< HEAD
 # sticky_web_scroll
 
-A wrapper to nestedscroll to enable flexible web scroll.
+Use this package if you need more customization on your web scroll displays.
+
+See the [install instructions](https://pub.dev/packages/sticky_web_scroll/install).
+
+## Quick reference
+
+Since customization requires a lot of properties, here is a quick cheatsheet:
+
+Property | What does it do
+-------- | ---------------
+landing    | Takes the 5% of the screen height, collasp when scrolled vertically.
+body  | The body of the main content.
+height  | The height of the landing to stickyAppbar point.
+sideNav  | Side widget(option).
+stickyAppBar  | Immediate below landing, stick to top when landing collasp.
+stickyHeight  | stickyAppBar, stickyAppBar height.
+
+## We are on YouTube!
+
+You can see a video tutorial here.
+1. Flutter Tutorials [tutorial](https://www.youtube.com/channel/UC1fuQBjVLSqwk-PgdeeMAyQ) by **Paul Edeme'kong**
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+The examples below were updated for version 0.0.1. Changes might have been made. See the [changelog](CHANGELOG.md).
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
-=======
-# sticky-web-scroll
-Sticky Web Scroll is a package that utilise NestedScrollView class to create great scroll effect for flutter web developers.
->>>>>>> b0105e886c7e717148e80b29f9e2c1bca0cec117
+### A basic Sticky-Web-Scroll 
+
+```dart
+class YourClassName extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: StickyWebScroll(
+          landing: Container(),
+          stickyAppBar: Container(),
+          body: Container(),
+        ),
+      ),
+    );
+  }
+}
+```

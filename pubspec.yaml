@@ -1,8 +1,8 @@
 name: sticky_web_scroll
 description: A wrapper to nestedscroll to enable flexible web scroll.
 version: 0.0.1
-author:
-homepage:
+author: Paul Edeme'kong <hello.paulvin@gmail.com>
+homepage: https://github.com/hello-paulvin/sticky-web-scroll
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
