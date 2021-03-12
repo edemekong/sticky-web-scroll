@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class StickyLanding extends SliverPersistentHeaderDelegate {
-  final double landingHeight;
-  final double offset;
+  final double collapseHeight;
+  final double bottomHeight;
   final FloatingHeaderSnapConfiguration snap;
   final Widget collapse;
-  final Widget visibleChild;
+  final Widget bottom;
 
   StickyLanding({
+    @required this.bottomHeight,
     @required this.collapse,
-    @required this.visibleChild,
-    @required this.landingHeight,
-    this.offset,
+    @required this.bottom,
+    @required this.collapseHeight,
     this.snap,
   });
 
@@ -20,27 +20,38 @@ class StickyLanding extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     final firstBarOffset = (-shrinkOffset * 0.01) - shrinkOffset;
-    final secondBarOffset = (-shrinkOffset * 0.01) - shrinkOffset;
+    final secondBarOffset = (-shrinkOffset * 1) + shrinkOffset;
+
     return Container(
       color: Colors.white,
       child: Stack(
         fit: StackFit.expand,
         children: [
           Positioned(
-            bottom: secondBarOffset < -1.00 ? 1 : secondBarOffset,
+            bottom: secondBarOffset,
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: Wrap(
-                children: [visibleChild ?? Container()],
+                children: [
+                  Container(
+                    height: bottomHeight + 3,
+                    child: bottom ?? SizedBox(),
+                  )
+                ],
               ),
             ),
           ),
           Positioned(
-            top: firstBarOffset,
+            top: firstBarOffset - bottomHeight,
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: Wrap(
-                children: [collapse ?? Container()],
+                children: [
+                  Container(
+                    height: collapseHeight,
+                    child: collapse ?? SizedBox(),
+                  )
+                ],
               ),
             ),
           ),
@@ -50,10 +61,10 @@ class StickyLanding extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => landingHeight;
+  double get maxExtent => collapseHeight;
 
   @override
-  double get minExtent => 60;
+  double get minExtent => bottomHeight;
 
   @override
   FloatingHeaderSnapConfiguration get snapConfiguration => snap;

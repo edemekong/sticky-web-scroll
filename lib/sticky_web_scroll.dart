@@ -8,7 +8,7 @@ enum SideNavPosition { Left, Right }
 class StickyWebScroll extends StatelessWidget {
   final Widget landing;
   final Widget body;
-  final double height;
+  final double landingHeight;
   final Widget sideNav;
   final Widget stickyAppBar;
   final double stickyHeight;
@@ -28,17 +28,17 @@ class StickyWebScroll extends StatelessWidget {
     @required this.landing,
     @required this.stickyAppBar,
     this.sideNav,
-    this.height,
+    this.landingHeight,
     this.stickyHeight,
     this.floating = true,
     this.pinned = true,
     this.controller,
     this.clipBehavior = Clip.hardEdge,
     this.restorationId,
-    this.scrollDirection,
+    this.scrollDirection = Axis.vertical,
     this.physics,
     this.reverse = false,
-    this.sideNavPosition = SideNavPosition.Left,
+    this.sideNavPosition,
   }) : super(key: key);
 
   @override
@@ -54,9 +54,17 @@ class StickyWebScroll extends StatelessWidget {
       restorationId: restorationId,
       body: Row(
         children: [
-          sideNavPosition == SideNavPosition.Left ? _sideNav() : SizedBox(),
+          sideNavPosition == null
+              ? SizedBox()
+              : sideNavPosition == SideNavPosition.Left
+                  ? _sideNav()
+                  : SizedBox(),
           _buildBody(),
-          sideNavPosition == SideNavPosition.Right ? _sideNav() : SizedBox()
+          sideNavPosition == null
+              ? SizedBox()
+              : sideNavPosition == SideNavPosition.Right
+                  ? _sideNav()
+                  : SizedBox()
         ],
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -67,14 +75,10 @@ class StickyWebScroll extends StatelessWidget {
               floating: floating,
               pinned: pinned,
               delegate: StickyLanding(
-                landingHeight: height ?? initialHeight,
-                collapse: Container(
-                  height: height ?? initialHeight,
-                  child: landing,
-                ),
-                visibleChild: Container(
-                  height: stickyHeight ?? 50,
-                ),
+                collapse: landing,
+                collapseHeight: landingHeight ?? initialHeight,
+                bottom: stickyAppBar,
+                bottomHeight: stickyHeight ?? 50,
               ),
             ),
           ),
@@ -83,7 +87,6 @@ class StickyWebScroll extends StatelessWidget {
     );
   }
 
-  Widget _sideNav() => sideNav ?? Container();
-
+  Widget _sideNav() => Wrap(children: [sideNav ?? Container()]);
   Widget _buildBody() => body;
 }
