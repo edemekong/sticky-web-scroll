@@ -10,12 +10,12 @@ Since customization requires a lot of properties, here is a quick cheatsheet:
 
 Property | What does it do
 -------- | ---------------
-landing    | Takes the 5% of the screen height, collasp when scrolled vertically.
+landing    | Takes the 5% of the screen height(Customizable), collasp when scrolled vertically.
 body  | The body of the main content.
 landingHeight  | The height of the landing to stickyAppbar point.
 sideNav  | Side widget(optional).
-stickyAppBar  | Immediate below landing, stick to top when landing collasp.
-stickyHeight  | stickyAppBar, stickyAppBar height.
+stickyAppBar  | Immediate below landing,(Customizable) stick to top when landing collasp .
+stickyHeight  | stickyAppBar, stickyAppBar height.(stickyHeight must not be greater than height of landingHeight)
 
 ## We are on YouTube!
 
