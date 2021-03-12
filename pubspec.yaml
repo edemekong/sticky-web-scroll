@@ -1,6 +1,6 @@
 name: sticky_web_scroll
-description: A wrapper to nestedscroll to enable flexible web scroll.
-version: 0.0.1
+description: A wrapper to NestedScrollView to enable flexible web scroll and awesome appbars.
+version: 0.0.2
 homepage: https://github.com/hello-paulvin/sticky-web-scroll
 
 environment:
