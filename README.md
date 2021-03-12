@@ -39,7 +39,7 @@ The examples below were updated for version 0.0.1. Changes might have been made.
 
 ## Screenshot
 
-![sticky_web_scroll Animated](screenshots/screen1.gif.gif)
+![sticky_web_scroll Animated](screenshots/screen1.gif)
 
 ### A basic Sticky-Web-Scroll 
 
